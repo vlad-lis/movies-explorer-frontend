@@ -1,0 +1,23 @@
+{
+  "extends": ["airbnb-base", "plugin:react/recommended"],
+  "plugins": ["import", "jsx-a11y", "react"],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    //
+  },
+  "globals": {
+    "React": "writable",
+    "document": "readonly"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
