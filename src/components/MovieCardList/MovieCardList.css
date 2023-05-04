@@ -1,0 +1,39 @@
+.cardList {
+  padding: 80px 0;
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+}
+
+.cardList_extra-padding {
+  padding-bottom: 247px;
+}
+
+.cardList__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+  row-gap: 37px;
+  flex-wrap: wrap;
+}
+
+.cardList__more-btn {
+  width: 320px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #2F2F2F;
+  border-radius: 6px;
+  color: #FFFFFF;
+}
+
+.cardList__more-btn_hidden {
+  display: none;
+}

@@ -1,0 +1,39 @@
+.notfound-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notfound {
+  padding-top: 246px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notfound__err-code {
+  margin: 0;
+  font-size: 140px;
+  line-height: 169px;
+  font-weight: 400;
+}
+
+.notfound__err-message {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.notfound__goback-btn {
+  margin-top: 184px;
+  padding: 0;
+  border: none;
+  color: #4285F4;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: transparent;
+}
+
+.notfound__goback-btn:hover {
+  cursor: pointer;
+}

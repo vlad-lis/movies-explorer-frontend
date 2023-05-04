@@ -1,0 +1,95 @@
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile {
+  padding: 77px 0 70px 0;
+  width: 100%;
+  max-width: 410px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__greeting {
+  margin: 0;
+  font-size: 24px;
+  line-height: 29.05px;
+  font-weight: 500;
+}
+
+.profile__form {
+  width: 100%;
+  padding: 107px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__fieldset {
+  margin: 0;
+  padding: 16px 0;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.profile__fieldset:nth-child(2) {
+  border-top: 1px solid;
+  border-color: #424242;
+}
+
+.profile__error {
+  height: 14px;
+}
+
+.profile__text {
+  font-size: 11px;
+  line-height: 13.31px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.profile__text_red {
+  color: #EE3465;
+}
+
+.profile__input {
+  width: 75%;
+  padding: 0;
+  border: none;
+  background-color: #202020;
+  text-align: right;
+  font-weight: 400;
+  outline: none;
+}
+
+.profile__input::placeholder {
+  color: #FFFFFF;
+}
+
+.profile__button {
+  margin-bottom: 16px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-size: 13px;
+  line-height: 15.73px;
+}
+
+.profile__button:hover {
+  cursor: pointer;
+}
+
+.profile__button_margin-top {
+  margin-top: 220px;
+}
+
+.profile__button_red {
+  color: #EE3465;
+  font-weight: 500;
+}

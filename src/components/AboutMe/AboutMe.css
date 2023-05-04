@@ -1,0 +1,60 @@
+.aboutme {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 0;
+}
+
+.aboutme__heading {
+  margin: 0 0 23px 0;
+  font-size: 22px;
+  line-height: 26.63px;
+  font-weight: 400;
+}
+
+.aboutme__container {
+  border-top: 1px solid;
+  border-color: #DADADA;
+  padding: 66px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.aboutme__info {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutme__name {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 400;
+}
+
+.aboutme__profile {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 18px 0 0 0;
+}
+
+.aboutme__bio {
+  margin: 26px 0 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.aboutme__ghlink {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: auto;
+  margin-left: 0;
+}
+
+.aboutme__photo {
+  min-height: 327px;
+}
