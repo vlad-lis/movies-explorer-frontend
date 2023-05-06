@@ -31,12 +31,12 @@ function Header({ isLoggedIn }) {
         isLoggedIn ? (
           <>
             <button className='header__burger-btn' onClick={handleBurgerClick} />
-            <div className='header__nav'>
+            <div className='header__nav header__nav_dynamic-display'>
               <Navigation isLoggedIn={isLoggedIn} />
             </div>
           </>
         ) : (
-          <div>
+          <div className='header__nav'>
             <Navigation isLoggedIn={isLoggedIn} />
           </div>
         )

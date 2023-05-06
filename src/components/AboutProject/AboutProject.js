@@ -15,10 +15,10 @@ function AboutProject() {
         </li>
       </ul>
       <ul className='aboutproject__duration'>
-        <li className='aboutproject__back-duration'>{aboutProject.backendDuration}</li>
-        <li className='aboutproject__back-info'>{aboutProject.backendDescription}</li>
-        <li className='aboutproject__front-duration'>{aboutProject.frontendDuration}</li>
-        <li className='aboutproject__front-info'>{aboutProject.frontendDescription}</li>
+        <li className='aboutproject__duration-block aboutproject__back-duration'>{aboutProject.backendDuration}</li>
+        <li className='aboutproject__info-block aboutproject__back-info'>{aboutProject.backendDescription}</li>
+        <li className='aboutproject__duration-block aboutproject__front-duration'>{aboutProject.frontendDuration}</li>
+        <li className='aboutproject__info-block aboutproject__front-info'>{aboutProject.frontendDescription}</li>
       </ul>
     </section>
   );
