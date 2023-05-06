@@ -37,3 +37,9 @@
   display: flex;
   gap: 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .footer {
+    max-width: 708px;
+  }
+}

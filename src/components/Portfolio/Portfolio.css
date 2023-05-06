@@ -40,8 +40,22 @@
 
 .portfolio__btn {
   padding: 0;
+  background-image: url(../../images/portfolio-link-btn.svg);
   background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: right center;
   border: none;
   width: 29px;
-  height: 60px;
+  height: 29px;
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio {
+    max-width: 668px;
+    padding-bottom: 71px;
+  }
+
+  .portfolio__project-name {
+    font-size: 28px;
+  }
 }

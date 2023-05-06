@@ -56,5 +56,36 @@
 }
 
 .aboutme__photo {
-  min-height: 327px;
+  max-height: 327px;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutme {
+    max-width: 668px;
+    padding: 90px 0;
+  }
+
+  .aboutme__info {
+    max-width: 364px;
+  }
+
+  .aboutme__name {
+    font-size: 40px;
+  }
+
+  .aboutme__profile {
+    margin-top: 16px;
+    font-size: 12px;
+  }
+
+  .aboutme__bio {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .aboutme__photo {
+    max-height: 307px;
+  }
 }

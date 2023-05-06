@@ -90,3 +90,25 @@
   font-size: 14px;
   color: #8B8B8B;
 }
+
+@media (max-width: 768px) {
+  .aboutproject {
+    max-width: 668px;
+    padding: 90px 0;
+  }
+
+  .aboutproject__info {
+    padding-bottom: 93px;
+    gap: 15px;
+  }
+
+  .aboutproject__subcontainer {
+    gap: 22px;
+    max-width: 319px;
+  }
+
+  .aboutproject__subinfo {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

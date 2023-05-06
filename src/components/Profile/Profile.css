@@ -5,7 +5,7 @@
 }
 
 .profile {
-  padding: 77px 0 70px 0;
+  padding: 74px 0 70px 0;
   width: 100%;
   max-width: 410px;
   display: flex;
@@ -92,4 +92,18 @@
 .profile__button_red {
   color: #EE3465;
   font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    padding: 236px 0 269px 0;
+  }
+
+  .profile__form {
+    padding-top: 80px;
+  }
+
+  .profile__button_margin-top {
+    margin-top: 194px;
+  }
 }

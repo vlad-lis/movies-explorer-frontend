@@ -37,3 +37,18 @@
 .cardList__more-btn_hidden {
   display: none;
 }
+
+@media screen and (max-width: 768px) {
+  .cardList {
+    max-width: 708px;
+    gap: 80px;
+  }
+
+  .cardList__list {
+    gap: 30px;
+  }
+
+  .cardList_extra-padding {
+    padding-bottom: 170px;
+  }
+}

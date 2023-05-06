@@ -12,7 +12,7 @@ function AuthPage({ isRegisterPage, staticContent }) {
     <main className='auth-content'>
       <section className='auth'>
         <div className='auth__logo-container'>
-          <Link to='/'><Logo /></Link>
+          <Logo />
         </div>
         <h2 className='auth__greeting'>{greeting}</h2>
         <form className='auth__form'>
@@ -29,7 +29,7 @@ function AuthPage({ isRegisterPage, staticContent }) {
           </fieldset>
           <fieldset className='auth__fieldset'>
             <label className='auth__label'>{passwordLabel}</label>
-            <input className='auth__input' placeholder={passwordPlaceholder} />
+            <input className='auth__input' placeholder={passwordPlaceholder} type='password' />
             <span className='auth__error auth__erorr_extra-padding'></span>
           </fieldset>
           <button className='auth__submit-btn'>{submitBtn}</button>

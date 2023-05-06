@@ -1,24 +1,44 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Logo from '../Logo/Logo';
-import { headerLinks } from '../../utils/landingContent';
+import Navigation from '../Navigation/Navigation';
+import NavBurgerMenu from '../NavBurgerMenu/NavBurgerMenu';
 
 function Header({ isLoggedIn }) {
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+
+  function handleBurgerClick() {
+    setIsBurgerOpen(true);
+  }
+
+  function handleCloseBurger() {
+    setIsBurgerOpen(false);
+  }
+
+  function handleOverlayClick(evt) {
+    if (evt.target === evt.currentTarget) {
+      setIsBurgerOpen(false);
+    }
+  }
+
   return (
     <header className='header'>
-      <Link to='/' ><Logo /></Link>
+      <NavBurgerMenu isOpen={isBurgerOpen}
+        onClose={handleCloseBurger}
+        onOverlayClick={handleOverlayClick} />
+      <Logo />
       {
         isLoggedIn ? (
-          <nav className='header__nav-menu header__nav-menu_movies'>
-            <Link className='header__nav-link header__nav-link_movies' to='/movies' >{headerLinks.movies}</Link>
-            <Link className='header__nav-link header__nav-link_movies' to='/saved-movies' >{headerLinks.savedMovies}</Link>
-            <Link to='/profile'><button className='header__profile-btn' type='button'>{headerLinks.account}</button></Link>
-          </nav>
+          <>
+            <button className='header__burger-btn' onClick={handleBurgerClick} />
+            <div className='header__nav'>
+              <Navigation isLoggedIn={isLoggedIn} />
+            </div>
+          </>
         ) : (
-          <nav className='header__nav-menu'>
-            <Link className='header__nav-link' to='/movies' >{headerLinks.register}</Link>
-            <Link className='header__nav-link header__nav-link_green' to='/saved-movies' >{headerLinks.login}</Link>
-          </nav>
+          <div>
+            <Navigation isLoggedIn={isLoggedIn} />
+          </div>
         )
       }
     </header>

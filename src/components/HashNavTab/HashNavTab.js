@@ -1,7 +1,7 @@
 import { HashLink } from 'react-router-hash-link';
 import { hashLinks } from '../../utils/landingContent';
 
-function NavTab() {
+function HashNavTab() {
   function scrollIntoView(element) {
     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -15,4 +15,4 @@ function NavTab() {
   );
 }
 
-export default NavTab;
+export default HashNavTab;

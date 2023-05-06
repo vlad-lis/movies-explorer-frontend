@@ -1,4 +1,5 @@
-const headerLinks = {
+const navLinks = {
+  home: 'Главная',
   movies: 'Фильмы',
   savedMovies: 'Сохранённые фильмы',
   account: 'Аккаунт',
@@ -65,5 +66,5 @@ const footer = {
 };
 
 export {
-  headerLinks, promoTitle, hashLinks, aboutProject, techs, aboutme, portfolio, footer,
+  navLinks, promoTitle, hashLinks, aboutProject, techs, aboutme, portfolio, footer,
 };

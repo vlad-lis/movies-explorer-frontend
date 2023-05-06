@@ -107,3 +107,9 @@
 .auth__redirect-link {
   color: #4285F4;
 }
+
+@media screen and (max-width: 768px) {
+  .auth-content {
+    padding: 232px 0;
+  }
+}

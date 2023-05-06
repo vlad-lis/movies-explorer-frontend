@@ -1,0 +1,16 @@
+.profile-btn {
+  min-width: 100px;
+  min-height: 32px;
+  background-color: #313131;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 20px;
+  padding: 0;
+}
+
+.profile-btn:hover {
+  cursor: pointer;
+}
