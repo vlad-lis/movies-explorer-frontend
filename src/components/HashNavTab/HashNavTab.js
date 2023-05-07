@@ -8,9 +8,9 @@ function HashNavTab() {
 
   return (
     <nav className='navtab'>
-      <HashLink className='navtab__hashlink' scroll={scrollIntoView}>{hashLinks.aboutProject}</HashLink>
-      <HashLink className='navtab__hashlink' scroll={scrollIntoView}>{hashLinks.techs}</HashLink>
-      <HashLink className='navtab__hashlink' scroll={scrollIntoView}>{hashLinks.student}</HashLink>
+      <HashLink className='navtab__hashlink' to='#aboutproject' scroll={scrollIntoView}>{hashLinks.aboutProject}</HashLink>
+      <HashLink className='navtab__hashlink' to='#techs' scroll={scrollIntoView}>{hashLinks.techs}</HashLink>
+      <HashLink className='navtab__hashlink' to='#aboutme' scroll={scrollIntoView}>{hashLinks.student}</HashLink>
     </nav>
   );
 }

@@ -18,6 +18,11 @@
   font-weight: 500;
 }
 
+.navtab__hashlink:hover {
+  opacity: .5;
+  transition: .3s;
+}
+
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .navtab {
     gap: 6px;

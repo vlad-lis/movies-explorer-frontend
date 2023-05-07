@@ -1,10 +1,12 @@
 # movies-explorer-frontend
 
+[Ссылка на макет](https://drive.google.com/file/d/1-ZFUswNGawfRFfe25xNkmI4YLCH-m7zI/view?usp=share_link)
+
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.

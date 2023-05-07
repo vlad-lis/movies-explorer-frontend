@@ -55,6 +55,11 @@
   margin-left: 0;
 }
 
+.aboutme__ghlink:hover {
+  opacity: .5;
+  transition: .3s;
+}
+
 .aboutme__photo {
   max-height: 327px;
   object-fit: contain;

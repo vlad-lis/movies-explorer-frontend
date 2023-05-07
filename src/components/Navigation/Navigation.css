@@ -20,6 +20,12 @@
   font-weight: 500;
 }
 
+.nav__link:hover {
+  cursor: pointer;
+  opacity: .7;
+  transition: .2s;
+}
+
 .nav__link_movies {
   font-size: 14px;
 }

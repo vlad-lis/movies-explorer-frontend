@@ -2,7 +2,7 @@ import { aboutProject } from '../../utils/landingContent';
 
 function AboutProject() {
   return (
-    <section className='aboutproject'>
+    <section className='aboutproject' id='aboutproject'>
       <h2 className='aboutproject__heading'>{aboutProject.heading}</h2>
       <ul className='aboutproject__info'>
         <li className='aboutproject__subcontainer'>

@@ -45,3 +45,9 @@
 .filter__checkbox:checked + .filter__switch:before {
   transform: translateX(16px);
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .filter {
+    font-size: 11px;
+  }
+}

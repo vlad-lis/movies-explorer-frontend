@@ -2,7 +2,7 @@ import { techs } from '../../utils/landingContent';
 
 function Techs() {
   return (
-    <section className='techs'>
+    <section className='techs' id='techs'>
       <div className='techs__container'>
         <h2 className='techs__heading'>{techs.heading}</h2>
         <div className='techs__info'>

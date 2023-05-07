@@ -11,7 +11,7 @@ import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
 
 function App() {
-  const [isLoggedIn] = useState(false);
+  const [isLoggedIn] = useState(true);
 
   return (
     <div className="root">

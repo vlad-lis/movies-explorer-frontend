@@ -34,6 +34,12 @@
   color: #FFFFFF;
 }
 
+.cardList__more-btn:hover {
+  cursor: pointer;
+  opacity: .7;
+  transition: .2s;
+}
+
 .cardList__more-btn_hidden {
   display: none;
 }
@@ -50,5 +56,26 @@
 
   .cardList_extra-padding {
     padding-bottom: 170px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .cardList {
+    max-width: 300px;
+    padding-top: 49px;
+    gap: 76px;
+  }
+
+  .cardList__list {
+    gap: 14px;
+  }
+
+  .cardList_extra-padding {
+    padding-bottom: 166px;
+  }
+
+  .cardList__more-btn {
+    width: 240px;
+    height: 36px;
   }
 }

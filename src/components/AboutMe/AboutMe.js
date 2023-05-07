@@ -3,7 +3,7 @@ import { aboutme } from '../../utils/landingContent';
 
 function AboutMe() {
   return (
-    <section className='aboutme'>
+    <section className='aboutme' id='aboutme'>
       <h2 className='aboutme__heading'>{aboutme.job}</h2>
       <div className='aboutme__container'>
         <div className='aboutme__info'>
