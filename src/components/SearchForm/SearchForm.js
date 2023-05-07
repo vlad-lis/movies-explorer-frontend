@@ -3,17 +3,17 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 function SearchForm() {
   return (
-    <section className='search'>
+    <div className='search'>
       <form className='search__form'>
         <fieldset className='search__film'>
-          <input className='search__input' placeholder={searchform.placeholder} />
+          <input className='search__input' placeholder={searchform.placeholder} required/>
           <button className='search__submit-btn'/>
         </fieldset>
         <fieldset className='search__switch'>
           <FilterCheckbox />
         </fieldset>
       </form>
-    </section>
+    </div>
   );
 }
 

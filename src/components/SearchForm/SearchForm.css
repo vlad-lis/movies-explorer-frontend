@@ -46,6 +46,8 @@
 
 .search__submit-btn:hover {
   cursor: pointer;
+  opacity: .7;
+  transition: .2s;
 }
 
 .search__switch {

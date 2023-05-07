@@ -20,7 +20,7 @@ function MovieCard({ movie, savedCardsRoute }) {
 
   return (
     <figure className='card'>
-      <img className='card__image' src={image} />
+      <img className='card__image' src={image} alt='movie screenshot'/>
       <figcaption className='card__caption'>
         <div className='card__title-container'>
           <h3 className='card__title'>{name}</h3>

@@ -2,7 +2,7 @@ import { navLinks } from '../../utils/landingContent';
 
 function ProfileButton() {
   return (
-    <button className='profile-btn' type='button'>{navLinks.account}</button>
+    <div className='profile-btn'>{navLinks.account}</div>
   );
 }
 

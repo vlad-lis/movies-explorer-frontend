@@ -32,7 +32,7 @@ function AuthPage({ isRegisterPage, staticContent }) {
             <input className='auth__input' placeholder={passwordPlaceholder} type='password' />
             <span className='auth__error auth__erorr_extra-padding'></span>
           </fieldset>
-          <button className='auth__submit-btn'>{submitBtn}</button>
+          <button className={`auth__submit-btn ${!isRegisterPage && 'auth__submit-btn_extra-margin'}`}>{submitBtn}</button>
         </form>
         <div className='auth__redirect-container'>
           <p className='auth__redirect-text'>{redirectPrompt}</p>
