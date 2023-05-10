@@ -1,0 +1,66 @@
+.notfound-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notfound {
+  padding-top: 246px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notfound__err-code {
+  margin: 0;
+  font-size: 140px;
+  line-height: 169px;
+  font-weight: 400;
+}
+
+.notfound__err-message {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.notfound__goback-btn {
+  margin-top: 184px;
+  padding: 0;
+  border: none;
+  color: #4285F4;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: transparent;
+}
+
+.notfound__goback-btn:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .notfound {
+    padding: 408px 0 222px 0;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .notfound {
+    padding: 329px 0 30px 0;
+  }
+
+  .notfound__err-code {
+    font-size: 80px;
+    line-height: 97px;
+  }
+
+  .notfound__err-message {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .notfound__goback-btn {
+    margin-top: 284px;
+  }
+}

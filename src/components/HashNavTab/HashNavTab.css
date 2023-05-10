@@ -1,0 +1,36 @@
+.navtab {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.navtab__hashlink {
+  width: 96px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #303030;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.navtab__hashlink:hover {
+  opacity: .5;
+  transition: .3s;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .navtab {
+    gap: 6px;
+  }
+
+  .navtab__hashlink {
+    width: 82px;
+    height: 26px;
+    font-size: 10px;
+  }
+}
