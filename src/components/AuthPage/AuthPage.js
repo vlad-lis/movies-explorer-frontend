@@ -45,6 +45,7 @@ function AuthPage({
                 onChange={handleChange}
                 value={values.name || ''}
                 required
+                pattern="[A-Za-z\u0400-\u04FF -]*"
                 minLength={2}
                 maxLength={30} />
               <span className='auth__error auth__error_extra-margin'>{errors.name}</span>

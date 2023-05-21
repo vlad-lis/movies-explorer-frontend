@@ -32,6 +32,7 @@ function Profile({
               value={values.name || user.name}
               onChange={handleChange}
               required
+              pattern="[A-Za-z\u0400-\u04FF -]*"
               minLength={2}
               maxLength={30} />
           </fieldset>
