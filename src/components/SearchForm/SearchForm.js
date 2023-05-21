@@ -1,11 +1,19 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { searchform } from '../../utils/staticContent/moviesPageContent';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm({ onSubmit, isShortsChecked, onShortsCheck }) {
+function SearchForm({
+  onSubmit, isShortsChecked, onShortsCheck, savedCardsRoute,
+}) {
   const storedKeyword = localStorage.getItem('keyword');
   const [keyword, setKeyword] = useState(storedKeyword || '');
+
+  useEffect(() => {
+    if (savedCardsRoute) {
+      setKeyword('');
+    }
+  }, []);
 
   function handleChange(evt) {
     setKeyword(evt.target.value);
@@ -40,6 +48,7 @@ SearchForm.propTypes = {
   isShortsChecked: PropTypes.bool,
   onShortsCheck: PropTypes.func,
   onSubmit: PropTypes.func,
+  savedCardsRoute: PropTypes.bool,
 };
 
 export default SearchForm;

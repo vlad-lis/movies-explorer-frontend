@@ -1,6 +1,6 @@
 const MOVIES_URL = 'https://api.nomoreparties.co';
 const MAIN_API_URL = 'https://api.movie-explorer.nomoredomains.monster';
-const PROPERTIES_TO_FILTER = ['nameRU', 'nameEN', 'director', 'country', 'description'];
+const PROPERTIES_TO_FILTER = ['nameRU', 'nameEN'];
 const DURATION = 'duration';
 const DURATION_THRESHOLD = 40;
 const SEARCH_ERROR_NO_RESULTS = 'Ничего не найдено';

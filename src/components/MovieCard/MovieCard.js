@@ -24,13 +24,14 @@ function MovieCard({
 
   function handleDeleteMovie() {
     const id = savedCardsRoute ? movie.movieId : movie.id;
-    console.log(id);
     onDeleteMovie(id);
   }
 
   return (
     <figure className='card'>
-      <img className='card__image' src={savedCardsRoute ? image : `${MOVIES_URL + image.url}`} alt='movie screenshot' />
+      <a href={movie.trailerLink} target="_blank" rel="noopener noreferrer">
+        <img className='card__image' src={savedCardsRoute ? image : `${MOVIES_URL + image.url}`} alt='movie screenshot' />
+      </a>
       <figcaption className='card__caption'>
         <div className='card__title-container'>
           <h3 className='card__title'>{nameRU}</h3>

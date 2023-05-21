@@ -63,7 +63,7 @@ function AuthPage({
           </fieldset>
           <fieldset className='auth__fieldset'>
             <label className='auth__label'>{passwordLabel}</label>
-            <input className='auth__input' placeholder={passwordPlaceholder}
+            <input className={`auth__input ${submitError && 'auth__input_red'}}`} placeholder={passwordPlaceholder}
               type='password'
               name='password'
               onChange={handleChange}

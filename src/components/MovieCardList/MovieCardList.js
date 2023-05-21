@@ -13,7 +13,8 @@ function MovieCardList({
   const [displayedMovies, setDisplayedMovies] = useState([]);
   const cardListClass = `cardList ${savedCardsRoute && 'cardList_extra-padding'}`;
   const moviesArray = savedCardsRoute ? savedMovies : filteredMovies;
-  const moreMoviesBtnClass = `cardList__more-btn ${moviesArray.length <= displayedMoviesNumber && 'cardList__more-btn_hidden'}`;
+  const moreMoviesBtnAlwaysHidden = `${savedCardsRoute && 'cardList__more-btn_hidden'}`;
+  const moreMoviesBtnClass = `cardList__more-btn ${moviesArray.length <= displayedMoviesNumber && 'cardList__more-btn_hidden'} ${moreMoviesBtnAlwaysHidden}`;
 
   // handling the number of displayed movies
   const countMoviesToDisplay = () => {

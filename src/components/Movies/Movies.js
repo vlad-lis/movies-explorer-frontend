@@ -12,7 +12,8 @@ function Movies({
       <SearchForm
         onSubmit={onSubmit}
         isShortsChecked={isShortsChecked}
-        onShortsCheck={onShortsCheck} />
+        onShortsCheck={onShortsCheck}
+        savedCardsRoute={false} />
       <Preloader loading={isSearchLoading} />
       <MovieCardList
         filteredMovies={filteredMovies}

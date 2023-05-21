@@ -1,7 +1,9 @@
 import {
   useState, useEffect, useCallback,
 } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import {
+  Route, Routes, useNavigate,
+} from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
@@ -19,6 +21,7 @@ import {
 } from '../../utils/constants';
 import * as MainApi from '../../utils/MainApi';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
+import ProtectedRouteElement from '../ProtectedRouteElement/ProtectedRouteElement';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -28,9 +31,12 @@ function App() {
   const storedShortsChecked = JSON.parse(localStorage.getItem('shortsChecked'));
   const storedMovies = JSON.parse(localStorage.getItem('filteredMovies'));
   const [isShortsChecked, setIsShortsChecked] = useState(storedShortsChecked || false);
+  const [isSavedShortsChecked, setIsSavedShortsChecked] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState(storedMovies || []);
   const [previousFilteredMovies, setPreviousFilteredMovies] = useState(storedMovies || []);
-  const [searchError, setSearchError] = useState(null);
+  const [previousSavedMovies, setPreviousSavedMovies] = useState(savedMovies || []);
+  const [searchError, setSearchError] = useState('');
+  const [searchSavedError, setSearchSavedError] = useState('');
   const [isSearchLoading, setIsSearchLoading] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [successfulEditMsg, setSuccessfulEditMsg] = useState('');
@@ -46,12 +52,26 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    fetchMovies();
+  // load saved movies
+  const fetchSavedMovies = useCallback(async () => {
+    try {
+      const response = await MainApi.getSavedMovies();
+      setSavedMovies(response);
+    } catch (error) {
+      setSearchError(SEARCH_ERROR_API);
+    }
   }, []);
 
-  // filter movies
-  function handleSearchSubmit(filterKeyword) {
+  // initial load
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchMovies();
+      fetchSavedMovies();
+    }
+  }, [isLoggedIn]);
+
+  // filter movies in /movies
+  function handleSearch(filterKeyword) {
     setSearchError(null);
 
     if (filterKeyword.trim() === '') {
@@ -81,11 +101,45 @@ function App() {
     setIsSearchLoading(false);
   }
 
+  // filter movies in /saved-movies
+  function handleSearchSaved(filterKeyword) {
+    setSearchSavedError(null);
+
+    if (filterKeyword.trim() === '') {
+      return;
+    }
+
+    const filtered = filterArray(savedMovies, filterKeyword, PROPERTIES_TO_FILTER);
+
+    if (filtered.length === 0) {
+      setSearchSavedError(SEARCH_ERROR_NO_RESULTS);
+      setTimeout(() => {
+        fetchSavedMovies();
+        setSearchSavedError(null);
+      }, 3000);
+      return;
+    }
+
+    if (isShortsChecked) {
+      const shorts = filterByThreshold(filtered, DURATION, DURATION_THRESHOLD);
+      setSavedMovies(shorts);
+      return;
+    }
+
+    setSavedMovies(filtered);
+  }
+
+  // shorts switch for /movies
   function handleShortsFilter() {
     setIsShortsChecked(!isShortsChecked);
   }
 
-  // dynamic shorts filter (on click)
+  // shorts switch for /saved-movies
+  function handleSavedShortsFilter() {
+    setIsSavedShortsChecked(!isSavedShortsChecked);
+  }
+
+  // dynamic shorts filter (on click) for /movies
   useEffect(() => {
     if (isShortsChecked) {
       const shorts = filterByThreshold(filteredMovies, DURATION, DURATION_THRESHOLD);
@@ -96,29 +150,26 @@ function App() {
     }
   }, [isShortsChecked]);
 
-  // load saved movies
-  const fetchSavedMovies = useCallback(async () => {
-    try {
-      const response = await MainApi.getSavedMovies();
-      setSavedMovies(response);
-    } catch (error) {
-      setSearchError(SEARCH_ERROR_API);
-    }
-  }, []);
-
+  // dynamic shorts filter (on click) for /saved-movies
   useEffect(() => {
-    fetchSavedMovies();
-  }, []);
+    if (isSavedShortsChecked) {
+      const savedShorts = filterByThreshold(filteredMovies, DURATION, DURATION_THRESHOLD);
+      setPreviousSavedMovies(savedMovies);
+      setSavedMovies(savedShorts);
+    } else {
+      setSavedMovies(previousSavedMovies);
+    }
+  }, [isSavedShortsChecked]);
 
   // save movie
   function handleSaveMovie(movie, isFavorite) {
     if (!isFavorite) {
       MainApi.saveMovie(movie)
-        .then(() => {
-          fetchSavedMovies();
+        .then((savedMovie) => {
+          setSavedMovies([savedMovie, ...savedMovies]);
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
+          setSearchError(SEARCH_ERROR_API);
         });
     }
   }
@@ -129,10 +180,10 @@ function App() {
 
     MainApi.deleteMovie(movieToDelete._id)
       .then(() => {
-        fetchSavedMovies();
+        setSavedMovies((state) => state.filter((c) => c._id !== movieToDelete._id));
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        setSearchSavedError(SEARCH_ERROR_API);
       });
   }
 
@@ -142,7 +193,6 @@ function App() {
       setCurrentUser(user);
       setSearchError('');
       setIsLoggedIn(true);
-      navigate('/movies', { replace: true });
     }).catch((err) => { console.log(err); });
   }
 
@@ -150,6 +200,7 @@ function App() {
   function handleSignin(email, password) {
     MainApi.signin(email, password).then(() => {
       handleAuth();
+      navigate('/movies', { replace: true });
     }).catch(() => {
       setSubmitError(DEFAULT_ERROR);
     });
@@ -164,12 +215,12 @@ function App() {
     });
   }
 
-  // stay loggedin
+  // stay logged-in with jwt
   useEffect(() => {
     if (!isLoggedIn) {
       handleAuth();
     }
-  }, [isLoggedIn]);
+  }, []);
 
   // edit user profile
   function handleEditProfile(name, email) {
@@ -208,12 +259,12 @@ function App() {
             </>
           } />
           <Route path='/movies' element={
-            <>
+            <ProtectedRouteElement isLoggedIn={isLoggedIn}>
               <Header isLoggedIn={isLoggedIn} />
               <Movies
                 filteredMovies={filteredMovies}
                 savedMovies={savedMovies}
-                onSubmit={handleSearchSubmit}
+                onSubmit={handleSearch}
                 isShortsChecked={isShortsChecked}
                 onShortsCheck={handleShortsFilter}
                 searchError={searchError}
@@ -221,27 +272,31 @@ function App() {
                 onSaveMovie={handleSaveMovie}
                 onDeleteMovie={handleDeleteMovie} />
               <Footer />
-            </>
+            </ProtectedRouteElement>
           } />
           <Route path='/saved-movies' element={
-            <>
+            <ProtectedRouteElement isLoggedIn={isLoggedIn}>
               <Header isLoggedIn={isLoggedIn} />
               <SavedMovies
                 filteredMovies={filteredMovies}
                 savedMovies={savedMovies}
-                onDeleteMovie={handleDeleteMovie} />
+                onShortsCheck={handleSavedShortsFilter}
+                onDeleteMovie={handleDeleteMovie}
+                searchError={searchSavedError}
+                isShortsChecked={isSavedShortsChecked}
+                onSubmit={handleSearchSaved} />
               <Footer />
-            </>
+            </ProtectedRouteElement>
           } />
           <Route path='/profile' element={
-            <>
+            <ProtectedRouteElement isLoggedIn={isLoggedIn}>
               <Header isLoggedIn={isLoggedIn} />
               <Profile user={currentUser}
                 onSubmit={handleEditProfile}
                 onSignout={handleSignout}
                 successfulEditMsg={successfulEditMsg}
                 submitError={submitError} />
-            </>
+            </ProtectedRouteElement>
           } />
           <Route path='/signup' element={
             <Register onSubmit={handleSignup}
