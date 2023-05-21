@@ -1,5 +1,5 @@
 import student from '../../images/student.svg';
-import { aboutme } from '../../utils/landingContent';
+import { aboutme } from '../../utils/staticContent/landingContent';
 
 function AboutMe() {
   return (

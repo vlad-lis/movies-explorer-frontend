@@ -1,4 +1,4 @@
-import { aboutProject } from '../../utils/landingContent';
+import { aboutProject } from '../../utils/staticContent/landingContent';
 
 function AboutProject() {
   return (

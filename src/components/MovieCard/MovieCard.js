@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { MOVIES_URL } from '../../utils/constants';
+import { normalizeMovieProps } from '../../utils/auxiliaryFunctions';
 
-function MovieCard({ movie, savedCardsRoute }) {
+function MovieCard({
+  movie, savedCardsRoute, onSaveMovie, onDeleteMovie, savedMovies,
+}) {
   const {
-    image, name, duration, isFavorite,
+    image, nameRU, duration,
   } = movie;
-  const [inFavorites, setInFavorites] = useState(isFavorite);
-  const cardLikeClass = `card__favorite-btn ${inFavorites && 'card__favorite-btn_active'}`;
+  const isFavorite = savedCardsRoute ? true : savedMovies.some((savedMovie) => savedMovie.movieId === movie.id);
+  const cardLikeClass = `card__favorite-btn ${isFavorite && 'card__favorite-btn_active'}`;
 
   function convertTime(min) {
     const hours = Math.floor(min / 60);
@@ -14,19 +17,26 @@ function MovieCard({ movie, savedCardsRoute }) {
     return `${hours}ч ${minutes}м`;
   }
 
-  function handleLike() {
-    setInFavorites(!inFavorites);
+  function handleSaveMovie() {
+    const normalizedMovie = normalizeMovieProps(movie);
+    onSaveMovie(normalizedMovie, isFavorite);
+  }
+
+  function handleDeleteMovie() {
+    const id = savedCardsRoute ? movie.movieId : movie.id;
+    console.log(id);
+    onDeleteMovie(id);
   }
 
   return (
     <figure className='card'>
-      <img className='card__image' src={image} alt='movie screenshot'/>
+      <img className='card__image' src={savedCardsRoute ? image : `${MOVIES_URL + image.url}`} alt='movie screenshot' />
       <figcaption className='card__caption'>
         <div className='card__title-container'>
-          <h3 className='card__title'>{name}</h3>
+          <h3 className='card__title'>{nameRU}</h3>
           {savedCardsRoute
-            ? <button className='card__favorite-btn card__delete-btn' onClick={handleLike} />
-            : <button className={cardLikeClass} onClick={handleLike} />}
+            ? <button className='card__favorite-btn card__delete-btn' onClick={handleDeleteMovie} />
+            : <button className={cardLikeClass} onClick={isFavorite ? handleDeleteMovie : handleSaveMovie} />}
         </div>
         <p className='card__duration'>{convertTime(duration)}</p>
       </figcaption>
@@ -35,14 +45,11 @@ function MovieCard({ movie, savedCardsRoute }) {
 }
 
 MovieCard.propTypes = {
-  movie: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    duration: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
-    isFavorite: PropTypes.bool.isRequired,
-  }),
+  movie: PropTypes.object,
+  savedMovies: PropTypes.array,
   savedCardsRoute: PropTypes.bool.isRequired,
+  onSaveMovie: PropTypes.func,
+  onDeleteMovie: PropTypes.func,
 };
 
 export default MovieCard;

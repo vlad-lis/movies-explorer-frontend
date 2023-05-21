@@ -99,6 +99,10 @@
   margin-top: 157px;
 }
 
+.auth__submit-btn_disabled {
+  background-color: grey;
+}
+
 .auth__redirect-container {
   width: 100%;
   padding-top: 16px;

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { navLinks } from '../../utils/landingContent';
+import { navLinks } from '../../utils/staticContent/landingContent';
 import ProfileButton from '../ProfileButton/ProfileButton';
 
 function Navigation({ isLoggedIn }) {

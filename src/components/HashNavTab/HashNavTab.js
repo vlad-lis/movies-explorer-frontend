@@ -1,5 +1,5 @@
 import { HashLink } from 'react-router-hash-link';
-import { hashLinks } from '../../utils/landingContent';
+import { hashLinks } from '../../utils/staticContent/landingContent';
 
 function HashNavTab() {
   function scrollIntoView(element) {
