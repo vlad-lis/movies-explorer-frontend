@@ -4,7 +4,7 @@ import Logo from '../Logo/Logo';
 import useFormWithValidation from '../../hooks/useFormWIthValidation';
 
 function AuthPage({
-  isRegisterPage, staticContent, onSubmit, submitError,
+  isRegisterPage, staticContent, onSubmit, submitError, isFormDisabled,
 }) {
   const {
     greeting, nameLabel, namePlaceholder, emailLabel, emailPlaceholder,
@@ -75,9 +75,9 @@ function AuthPage({
             </span>
           </fieldset>
           <button
-            className={`auth__submit-btn ${!isRegisterPage && 'auth__submit-btn_extra-margin'} ${!isValid && 'auth__submit-btn_disabled'}`}
+            className={`auth__submit-btn ${!isRegisterPage && 'auth__submit-btn_extra-margin'} ${(!isValid || isFormDisabled) && 'auth__submit-btn_disabled'}`}
             type='submit'
-            disabled={!isValid}>
+            disabled={!isValid || isFormDisabled}>
             {submitBtn}
           </button>
         </form>
@@ -108,6 +108,7 @@ AuthPage.propTypes = {
   isRegisterPage: PropTypes.bool.isRequired,
   onSubmit: PropTypes.func,
   submitError: PropTypes.string,
+  isFormDisabled: PropTypes.bool,
 };
 
 export default AuthPage;

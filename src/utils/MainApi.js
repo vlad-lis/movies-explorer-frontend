@@ -40,7 +40,7 @@ export function signout() {
   }).then(renderResponse);
 }
 
-export function getUserInfo() {
+export function checkAuth() {
   return fetch(`${BASE_URL}/users/me`, {
     credentials: 'include',
     method: 'GET',

@@ -23,8 +23,7 @@ function filterByThreshold(array, property, threshold) {
 }
 
 // save search settings to local storage
-function saveToStorage(keyword, shortsChecked, movies) {
-  localStorage.setItem('keyword', keyword);
+function saveToStorage(shortsChecked, movies) {
   localStorage.setItem('shortsChecked', JSON.stringify(shortsChecked));
   localStorage.setItem('filteredMovies', JSON.stringify(movies));
 }
@@ -46,6 +45,21 @@ function normalizeMovieProps(movie) {
   };
 }
 
+// check coockies for jwt
+function checkJwtCookie() {
+  const cookies = document.cookie.split(';');
+
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim();
+
+    if (cookie.startsWith('jwt')) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 export {
-  filterArray, filterByThreshold, saveToStorage, normalizeMovieProps,
+  filterArray, filterByThreshold, saveToStorage, normalizeMovieProps, checkJwtCookie,
 };

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import { MOVIES_URL } from '../../utils/constants';
-import { normalizeMovieProps } from '../../utils/auxiliaryFunctions';
 
 function MovieCard({
   movie, savedCardsRoute, onSaveMovie, onDeleteMovie, savedMovies,
@@ -8,7 +8,7 @@ function MovieCard({
   const {
     image, nameRU, duration,
   } = movie;
-  const isFavorite = savedCardsRoute ? true : savedMovies.some((savedMovie) => savedMovie.movieId === movie.id);
+  const [isFavorite, setIsFavorite] = useState(savedCardsRoute ? true : savedMovies.some((savedMovie) => savedMovie.movieId === movie.id));
   const cardLikeClass = `card__favorite-btn ${isFavorite && 'card__favorite-btn_active'}`;
 
   function convertTime(min) {
@@ -17,9 +17,12 @@ function MovieCard({
     return `${hours}ч ${minutes}м`;
   }
 
+  useEffect(() => {
+    setIsFavorite(savedMovies?.some((savedMovie) => savedMovie.movieId === movie.id));
+  }, [movie, savedMovies]);
+
   function handleSaveMovie() {
-    const normalizedMovie = normalizeMovieProps(movie);
-    onSaveMovie(normalizedMovie, isFavorite);
+    onSaveMovie(movie, isFavorite, setIsFavorite);
   }
 
   function handleDeleteMovie() {

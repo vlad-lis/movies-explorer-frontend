@@ -98,6 +98,10 @@
     padding: 14px;
     gap: 15px;
   }
+
+  .card__delete-btn {
+    opacity: 1;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -119,5 +123,9 @@
   .card__duration {
     font-size: 10px;
     line-height: 12px;
+  }
+
+  .card__delete-btn {
+    opacity: 1;
   }
 }

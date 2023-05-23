@@ -4,11 +4,12 @@ import { searchform } from '../../utils/staticContent/moviesPageContent';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 function SearchForm({
-  onSubmit, isShortsChecked, onShortsCheck, savedCardsRoute,
+  onSubmit, isShortsChecked, onShortsCheck, savedCardsRoute, onNoInput,
 }) {
   const storedKeyword = localStorage.getItem('keyword');
-  const [keyword, setKeyword] = useState(storedKeyword || '');
+  const [keyword, setKeyword] = useState((!savedCardsRoute && storedKeyword) || '');
 
+  // do not display stored keyword from /movies
   useEffect(() => {
     if (savedCardsRoute) {
       setKeyword('');
@@ -21,6 +22,15 @@ function SearchForm({
 
   function handleSubmit(evt) {
     evt.preventDefault();
+    if (!savedCardsRoute) {
+      localStorage.setItem('keyword', keyword);
+    }
+
+    if (keyword.trim() === '') {
+      onNoInput();
+      return;
+    }
+
     onSubmit(keyword);
   }
 
@@ -49,6 +59,7 @@ SearchForm.propTypes = {
   onShortsCheck: PropTypes.func,
   onSubmit: PropTypes.func,
   savedCardsRoute: PropTypes.bool,
+  onNoInput: PropTypes.func,
 };
 
 export default SearchForm;

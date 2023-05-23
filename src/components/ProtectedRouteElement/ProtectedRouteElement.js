@@ -1,12 +1,18 @@
 /* eslint-disable */
-import { Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const ProtectedRouteElement = ({ isLoggedIn, children }) => {
-  if (!isLoggedIn) {
-      return <Navigate to='/' replace />;
-  }
+function ProtectedRouteElement({ isLoggedIn, children }) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      return navigate('/', { replace: true });
+    }
+  }, [isLoggedIn]);
 
   return children;
 };
 
 export default ProtectedRouteElement;
+

@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import SearchForm from '../SearchForm/SearchForm';
 import MovieCardList from '../MovieCardList/MovieCardList';
-import Preloader from '../Preloader/Preloader';
 
 function Movies({
   filteredMovies, savedMovies, onSubmit, isShortsChecked, onShortsCheck,
-  searchError, isSearchLoading, onSaveMovie, onDeleteMovie,
+  searchError, isSearchLoading, onSaveMovie,
+  onDeleteMovie, onNoInput, filteredSavedMovies,
 }) {
   return (
     <main className='movies-content'>
@@ -13,10 +13,12 @@ function Movies({
         onSubmit={onSubmit}
         isShortsChecked={isShortsChecked}
         onShortsCheck={onShortsCheck}
-        savedCardsRoute={false} />
-      <Preloader loading={isSearchLoading} />
+        savedCardsRoute={false}
+        onNoInput={onNoInput} />
       <MovieCardList
+        isSearchLoading={isSearchLoading}
         filteredMovies={filteredMovies}
+        filteredSavedMovies={filteredSavedMovies}
         savedMovies={savedMovies}
         searchError={searchError}
         onSaveMovie={onSaveMovie}
@@ -28,6 +30,7 @@ function Movies({
 
 Movies.propTypes = {
   filteredMovies: PropTypes.array,
+  filteredSavedMovies: PropTypes.array,
   savedMovies: PropTypes.array,
   onSubmit: PropTypes.func,
   isShortsChecked: PropTypes.bool,
@@ -36,6 +39,7 @@ Movies.propTypes = {
   isSearchLoading: PropTypes.bool,
   onSaveMovie: PropTypes.func,
   onDeleteMovie: PropTypes.func,
+  onNoInput: PropTypes.func,
 };
 
 export default Movies;
