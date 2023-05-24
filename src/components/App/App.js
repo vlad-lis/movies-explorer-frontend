@@ -297,6 +297,7 @@ function App() {
   useEffect(() => {
     setSubmitError('');
     setSearchSavedError('');
+    setIsSavedShortsChecked(false);
     if (location.pathname === '/saved-movies') {
       setFilteredSavedMovies(savedMovies);
     }
