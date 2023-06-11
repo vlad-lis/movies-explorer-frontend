@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ProfileButton from '../ProfileButton/ProfileButton';
-import { navLinks } from '../../utils/landingContent';
+import { navLinks } from '../../utils/staticContent/landingContent';
 
 function NavBurgerMenu({ isOpen, onClose, onOverlayClick }) {
   const linkClass = (navData) => (navData.isActive ? 'burger__link burger__link_active' : 'burger__link');

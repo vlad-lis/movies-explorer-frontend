@@ -22,6 +22,10 @@
   flex-wrap: wrap;
 }
 
+.cardList__list_hidden {
+  display: none;
+}
+
 .cardList__more-btn {
   width: 320px;
   height: 36px;

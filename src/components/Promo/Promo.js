@@ -1,5 +1,5 @@
 import HashNavTab from '../HashNavTab/HashNavTab';
-import { promoTitle } from '../../utils/landingContent';
+import { promoTitle } from '../../utils/staticContent/landingContent';
 
 function Promo() {
   return (

@@ -1,4 +1,4 @@
-import { techs } from '../../utils/landingContent';
+import { techs } from '../../utils/staticContent/landingContent';
 
 function Techs() {
   return (

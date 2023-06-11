@@ -1,4 +1,4 @@
-import { navLinks } from '../../utils/landingContent';
+import { navLinks } from '../../utils/staticContent/landingContent';
 
 function ProfileButton() {
   return (

@@ -57,6 +57,10 @@
   color: #EE3465;
 }
 
+.profile__text_green {
+  color: #3DDC84;
+}
+
 .profile__input {
   width: 75%;
   padding: 0;
@@ -87,6 +91,10 @@
 
 .profile__button_margin-top {
   margin-top: 220px;
+}
+
+.profile__button_disabled {
+  color: grey;
 }
 
 .profile__button_red {

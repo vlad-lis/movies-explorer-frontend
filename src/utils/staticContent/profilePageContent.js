@@ -1,9 +1,9 @@
 const profileForm = {
-  greeting: 'Привет, Виталий',
+  greeting: 'Привет, ',
   nameLabel: 'Имя',
   emailLabel: 'E-mail',
-  namePlaceholder: 'Виталий',
-  emailPlaceholder: 'pochta@yandex.ru',
+  namePlaceholder: '',
+  emailPlaceholder: '',
   editBtn: 'Редактировать',
   exitBtn: 'Выйти из аккаунта',
 };

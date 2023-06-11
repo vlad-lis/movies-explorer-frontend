@@ -60,6 +60,10 @@
   font-size: 13px;
 }
 
+.auth__input_red {
+  color: #EE3465;
+}
+
 .auth__input::placeholder {
   color: #8B8B8B;
 }
@@ -97,6 +101,10 @@
 
 .auth__submit-btn_extra-margin {
   margin-top: 157px;
+}
+
+.auth__submit-btn_disabled {
+  background-color: grey;
 }
 
 .auth__redirect-container {

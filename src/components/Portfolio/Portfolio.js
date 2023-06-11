@@ -1,4 +1,4 @@
-import { portfolio } from '../../utils/landingContent';
+import { portfolio } from '../../utils/staticContent/landingContent';
 
 function Portfolio() {
   return (

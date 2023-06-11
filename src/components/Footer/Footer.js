@@ -1,4 +1,4 @@
-import { footer } from '../../utils/landingContent';
+import { footer } from '../../utils/staticContent/landingContent';
 
 function Footer() {
   return (

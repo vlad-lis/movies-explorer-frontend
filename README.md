@@ -1,6 +1,11 @@
 # movies-explorer-frontend
 
-[Ссылка на макет](https://drive.google.com/file/d/1-ZFUswNGawfRFfe25xNkmI4YLCH-m7zI/view?usp=share_link)
+[Ссылка на макет (архив)](https://drive.google.com/file/d/1-ZFUswNGawfRFfe25xNkmI4YLCH-m7zI/view?usp=share_link)
+[Макет (figma)](https://www.figma.com/file/hCPCKzGYNyPc6K1OjanocM/Diploma-(Copy)?type=design&node-id=891%3A3857&t=Gnv5togfMN6uPu2Y-1)
+[Pull request](https://github.com/vlad-lis/movies-explorer-frontend/pull/3)
+
+Адрес: https://movie-explorer.nomoredomains.monster/  
+IP: 158.160.39.63
 
 ## Available Scripts
 
