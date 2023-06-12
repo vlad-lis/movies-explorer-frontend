@@ -1,31 +1,19 @@
-# movies-explorer-frontend
+# Movies Explorer (Frontend)
+This is the frontend part of the final project of the web development course.  
+The backend part (API) can be found <a href="https://github.com/vlad-lis/movies-explorer-api" target="_blank">here</a>.
 
-[Ссылка на макет (архив)](https://drive.google.com/file/d/1-ZFUswNGawfRFfe25xNkmI4YLCH-m7zI/view?usp=share_link)
-[Макет (figma)](https://www.figma.com/file/hCPCKzGYNyPc6K1OjanocM/Diploma-(Copy)?type=design&node-id=891%3A3857&t=Gnv5togfMN6uPu2Y-1)
-[Pull request](https://github.com/vlad-lis/movies-explorer-frontend/pull/3)
+## Links and address
+* <a href="https://www.figma.com/file/hCPCKzGYNyPc6K1OjanocM/Diploma-(Copy)?type=design&node-id=891%3A3857&t=Gnv5togfMN6uPu2Y-1" target="_blank">Link to view .fig file (Figma website)</a>  
+* <a href="https://drive.google.com/file/d/1-ZFUswNGawfRFfe25xNkmI4YLCH-m7zI/view?usp=share_link" target="_blank">Download .fig file here (archive)</a>  
 
-Адрес: https://movie-explorer.nomoredomains.monster/  
-IP: 158.160.39.63
+* Public address: <a href="https://movie-explorer.nomoredomains.monster/" target="_blank">https://movie-explorer.nomoredomains.monster/</a>  
+* Public IP: 158.160.39.63
 
-## Available Scripts
+## Run locally
+1. Clone repository.  
 
-In the project directory, you can run:
+2. Install dependencies (```$npm i```).  
 
-### `npm run start`
+3. While in the local repository run ```$npm run start```.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
