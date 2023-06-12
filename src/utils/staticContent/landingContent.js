@@ -52,7 +52,7 @@ const aboutme = {
 
 const portfolio = {
   name: 'Course projects',
-  project1: 'Static page',
+  project1: 'Static page (for 1100px+)',
   project2: 'Responsive website',
   project3: 'One-page application',
 };
