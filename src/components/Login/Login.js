@@ -2,9 +2,14 @@ import PropTypes from 'prop-types';
 import AuthPage from '../AuthPage/AuthPage';
 import loginPageContent from '../../utils/staticContent/loginPageContent';
 
-function Login({ onSubmit, isFormDisabled }) {
+function Login({ onSubmit, submitError, isFormDisabled }) {
   return (
-    <AuthPage isRegisterPage={false} staticContent={loginPageContent} onSubmit={onSubmit} isFormDisabled={isFormDisabled} />
+    <AuthPage
+      isRegisterPage={false}
+      staticContent={loginPageContent}
+      onSubmit={onSubmit}
+      submitError={submitError}
+      isFormDisabled={isFormDisabled} />
   );
 }
 

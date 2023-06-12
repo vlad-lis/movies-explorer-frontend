@@ -370,6 +370,7 @@ function App() {
           <Route path='/signin' element={
             <Login
               onSubmit={handleSignin}
+              submitError={submitError}
               isFormDisabled={isFormDisabled} />
           } />
           <Route path='*' element={<NotFound />} />

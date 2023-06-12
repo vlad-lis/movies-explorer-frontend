@@ -1,79 +1,64 @@
 import { PropTypes } from 'prop-types';
-import { useEffect, useState, useContext } from 'react';
+import { useState, useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import profileForm from '../../utils/staticContent/profilePageContent';
-import useFormWithValidation from '../../hooks/useFormWIthValidation';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { INPUT_OPTIONS } from '../../utils/constants';
 
 function Profile({
   onSubmit, onSignout, successfulEditMsg, submitError, isFormDisabled,
 }) {
   const currentUser = useContext(CurrentUserContext);
-  const {
-    values, handleChange, errors, isValid, resetForm,
-  } = useFormWithValidation();
 
   const [userData, setUserData] = useState({
     name: currentUser.name,
     email: currentUser.email,
   });
 
-  const errorMessage = `${errors.name || ''} ${errors.email || ''}`;
-  const statusMessage = successfulEditMsg || submitError;
-  const [isFormValid, setIsFormValid] = useState(false);
-
-  function handleFormChange(evt) {
-    const { name, value } = evt.target;
-    handleChange(evt);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setUserData({
-      ...userData, [name]: value,
+      ...userData,
+      [name]: value,
     });
-  }
+  };
 
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    const name = values.name || currentUser.name;
-    const email = values.email || currentUser.email;
+  const { register, handleSubmit, formState: { errors, isDirty, isValid } } = useForm({ mode: 'onChange' });
+  const submitBtnDisabled = !isDirty || !isValid || isFormDisabled || (userData.name === currentUser.name && userData.email === currentUser.email);
+  const errorMessage = `${errors.name ? errors.name.message : ''} ${errors.email ? errors.email.message : ''}`;
+  const statusMessage = successfulEditMsg || submitError;
+
+  const onSubmitForm = () => {
+    const { name, email } = userData;
+
     onSubmit(name, email);
-    resetForm();
-  }
-
-  useEffect(() => {
-    if ((isValid) && (currentUser.name !== userData.name || currentUser.email !== userData.email)) {
-      setIsFormValid(true);
-    } else {
-      setIsFormValid(false);
-    }
-  }, [userData.name, userData.email]);
+  };
 
   return (
     <main className='profile-content'>
       <section className='profile'>
         <h2 className='profile__greeting'>{profileForm.greeting} {currentUser.name}</h2>
-        <form className='profile__form' onSubmit={handleSubmit}>
+        <form className='profile__form' onSubmit={handleSubmit(onSubmitForm)}>
           <fieldset className='profile__fieldset'>
             <label className='profile__text'>{profileForm.nameLabel}</label>
             <input className='profile__text profile__input'
               name='name'
-              value={values.name || currentUser.name}
-              onChange={handleFormChange}
-              pattern="[A-Za-z\u0400-\u04FF -]*"
-              minLength={2}
-              maxLength={30} />
+              defaultValue={userData.name}
+              {...register('name', { ...INPUT_OPTIONS.name, onChange: handleChange })} />
           </fieldset>
           <fieldset className='profile__fieldset'>
             <label className='profile__text'>{profileForm.emailLabel}</label>
             <input className='profile__text profile__input'
               name='email'
-              value={values.email || currentUser.email}
-              onChange={handleFormChange}
-              pattern='^[a-z0-9-_.]+?@[a-z0-9-_.]+\.[a-z]+' />
+              defaultValue={userData.email}
+              {...register('email', { ...INPUT_OPTIONS.email, onChange: handleChange })} />
           </fieldset>
           <span className={`profile__error profile__text profile__text_red ${successfulEditMsg && 'profile__text_green'}`}>
             {errorMessage} {statusMessage}
           </span>
           <button
-            disabled={!isFormValid || isFormDisabled}
-            className={`profile__button profile__button_margin-top ${(!isFormValid || isFormDisabled) && 'profile__button_disabled'}`}
+            disabled={submitBtnDisabled}
+            className={`profile__button profile__button_margin-top ${submitBtnDisabled && 'profile__button_disabled'}`}
             type='submit'>{profileForm.editBtn}</button>
         </form>
         <button className='profile__button profile__button_red' onClick={onSignout}>{profileForm.exitBtn}</button>

@@ -1,36 +1,36 @@
 const navLinks = {
-  home: 'Главная',
-  movies: 'Фильмы',
-  savedMovies: 'Сохранённые фильмы',
-  account: 'Аккаунт',
-  register: 'Регистрация',
-  login: 'Войти',
+  home: 'Home',
+  movies: 'Movies',
+  savedMovies: 'Saved movies',
+  account: 'Account',
+  register: 'Sign up',
+  login: 'Sign in',
 };
 
-const promoTitle = 'Учебный проект студента факультета Веб-разработки.';
+const promoTitle = 'Web-development diploma project';
 
 const hashLinks = {
-  aboutProject: 'О проекте',
-  techs: 'Технологии',
-  student: 'Студент',
+  aboutProject: 'About Project',
+  techs: 'Used Techs',
+  student: 'About Me',
 };
 
 const aboutProject = {
-  heading: 'О проекте',
-  stages: 'Дипломный проект включал 5 этапов',
-  stagesInfo: 'Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.',
-  duration: 'На выполнение диплома ушло 5 недель',
-  durationInfo: 'У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.',
-  backendDuration: '1 неделя',
+  heading: 'About Project',
+  stages: 'Five successive segments.',
+  stagesInfo: 'Planning, Backend development, Frontend implementation, Feature incorporation, Final refinements',
+  duration: 'Five weeks',
+  durationInfo: 'Each stage or segment had both a preliminary and a firm deadline',
+  backendDuration: 'One week',
   backendDescription: 'Back-end',
-  frontendDuration: '4 недели',
+  frontendDuration: 'Four weeks',
   frontendDescription: 'Front-end',
 };
 
 const techs = {
-  heading: 'Технологии',
-  count: '7 технологий',
-  info: 'На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.',
+  heading: 'Used techs',
+  count: 'Seven technologies',
+  info: 'Technologies studied in the course were applied in the project',
   html: 'HTML',
   css: 'CSS',
   js: 'JS',
@@ -41,27 +41,26 @@ const techs = {
 };
 
 const aboutme = {
-  job: 'Студент',
-  name: 'Виталий',
-  profile: 'Фронтенд-разработчик, 30 лет',
-  bio: `Я родился и живу в Саратове, закончил факультет экономики СГУ.
-  У меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить.
-  С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке,
-  начал заниматься фриланс-заказами и ушёл с постоянной работы.`,
+  job: 'About me',
+  name: 'Vladislav Lis',
+  profile: 'Web-development',
+  bio: `I have successfully completed web development and data analytics courses.
+  Currently, I am enrolled in a Python development course
+  while actively working on personal projects to enhance my portfolio`,
   github: 'Github',
 };
 
 const portfolio = {
-  name: 'Портфолио',
-  project1: 'Статичный сайт',
-  project2: 'Адаптивный сайт',
-  project3: 'Одностраничное приложение',
+  name: 'Course projects',
+  project1: 'Static page',
+  project2: 'Responsive website',
+  project3: 'One-page application',
 };
 
 const footer = {
-  description: 'Учебный проект Яндекс.Практикум х BeatFilm.',
+  description: 'Study project Yandex.Practicum х BeatFilm.',
   copyright: '\u00A9 2023',
-  yandex: 'Яндекс.Практикум',
+  yandex: 'Yandex.Practicum',
   git: 'Github',
 };
 

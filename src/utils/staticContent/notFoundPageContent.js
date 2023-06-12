@@ -1,7 +1,7 @@
 const notFoundPageContent = {
   errorCode: '404',
-  errorMessage: 'Страница не найдена',
-  goBackBtn: 'Назад',
+  errorMessage: 'Page not found',
+  goBackBtn: 'Back',
 };
 
 export default notFoundPageContent;

@@ -1,8 +1,8 @@
 const searchform = {
-  placeholder: 'Фильм',
-  shortsBtn: 'Короткометражки',
+  placeholder: 'Movie name',
+  shortsBtn: 'Short movies',
 };
 
-const moreMoviesBtn = 'Ещё';
+const moreMoviesBtn = 'More';
 
 export { searchform, moreMoviesBtn };

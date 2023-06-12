@@ -1,15 +1,15 @@
 const registerPageContent = {
-  greeting: 'Добро пожаловать!',
-  nameLabel: 'Имя',
-  namePlaceholder: 'Введите имя',
+  greeting: 'Sign up',
+  nameLabel: 'Name',
+  namePlaceholder: 'Enter name',
   emailLabel: 'E-mail',
-  emailPlaceholder: 'Введите email',
-  passwordLabel: 'Пароль',
-  passwordPlaceholder: 'Введите пароль',
-  defaultError: 'Что-то пошло не так...',
-  submitBtn: 'Зарегистрироваться',
-  redirectPrompt: 'Уже зарегистрированы?',
-  redirectLink: 'Войти',
+  emailPlaceholder: 'Enter email',
+  passwordLabel: 'Password',
+  passwordPlaceholder: 'Enter password',
+  defaultError: 'Something went wrong...',
+  submitBtn: 'Register',
+  redirectPrompt: 'Already registered?',
+  redirectLink: 'Sign in',
 };
 
 export default registerPageContent;

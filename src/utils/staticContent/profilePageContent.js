@@ -1,11 +1,11 @@
 const profileForm = {
-  greeting: 'Привет, ',
-  nameLabel: 'Имя',
+  greeting: 'Hello, ',
+  nameLabel: 'Name',
   emailLabel: 'E-mail',
   namePlaceholder: '',
   emailPlaceholder: '',
-  editBtn: 'Редактировать',
-  exitBtn: 'Выйти из аккаунта',
+  editBtn: 'Edit profile',
+  exitBtn: 'Logout',
 };
 
 export default profileForm;

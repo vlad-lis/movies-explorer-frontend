@@ -1,13 +1,13 @@
 const loginPageContent = {
-  greeting: 'Рады видеть!',
+  greeting: 'Sign in',
   emailLabel: 'E-mail',
-  emailPlaceholder: 'Введите email',
-  passwordLabel: 'Пароль',
-  passwordPlaceholder: 'Введите пароль',
-  defaultError: 'Что-то пошло не так...',
-  submitBtn: 'Войти',
-  redirectPrompt: 'Ещё не зарегистрированы?',
-  redirectLink: 'Регистрация',
+  emailPlaceholder: 'Enter e-mail',
+  passwordLabel: 'Password',
+  passwordPlaceholder: 'Enter password',
+  defaultError: 'Something went wrong...',
+  submitBtn: 'Login',
+  redirectPrompt: 'Not registered?',
+  redirectLink: 'Sign up',
 };
 
 export default loginPageContent;

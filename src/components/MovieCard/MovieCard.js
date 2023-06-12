@@ -6,7 +6,7 @@ function MovieCard({
   movie, savedCardsRoute, onSaveMovie, onDeleteMovie, savedMovies,
 }) {
   const {
-    image, nameRU, duration,
+    image, nameEN, duration,
   } = movie;
   const [isFavorite, setIsFavorite] = useState(savedCardsRoute ? true : savedMovies.some((savedMovie) => savedMovie.movieId === movie.id));
   const cardLikeClass = `card__favorite-btn ${isFavorite && 'card__favorite-btn_active'}`;
@@ -37,7 +37,7 @@ function MovieCard({
       </a>
       <figcaption className='card__caption'>
         <div className='card__title-container'>
-          <h3 className='card__title'>{nameRU}</h3>
+          <h3 className='card__title'>{nameEN}</h3>
           {savedCardsRoute
             ? <button className='card__favorite-btn card__delete-btn' onClick={handleDeleteMovie} />
             : <button className={cardLikeClass} onClick={isFavorite ? handleDeleteMovie : handleSaveMovie} />}

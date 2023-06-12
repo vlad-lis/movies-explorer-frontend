@@ -26,15 +26,7 @@ export default function useFormWithValidation(initialvalue = {}) {
     [setValues, setErrors, setIsValid],
   );
 
-  const isDirty = useMemo(() => {
-    const initial = initialState.current;
-
-    return Object.keys(values).some((key) => {
-      return !initial[key] || initial[key] !== values[key]
-    })
-  }, [values]);
-
   return {
-    values, handleChange, errors, isValid, resetForm, isDirty, initialState,
+    values, handleChange, errors, isValid, resetForm, initialState,
   };
 }
