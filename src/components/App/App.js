@@ -157,7 +157,7 @@ function App() {
       if (shorts.length === 0) {
         setSearchError(SEARCH_ERROR_NO_RESULTS);
       }
-    } else if (!isShortsChecked && storedMovies.length !== 0) {
+    } else if (!isShortsChecked && storedMovies && storedMovies.length !== 0) {
       handleSearch(storedKeyword);
     }
   }, [isShortsChecked]);
