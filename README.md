@@ -11,18 +11,18 @@ To run locally see [instructions](#run-locally) below.
 The main purpose of the project is to search for movies by name using a third-party API and then save them to favorites via the [developed API](https://github.com/vlad-lis/movies-explorer-api).  
 
 * The main page contains general information about the project:  
-<img src="./readme_images/home.png" alt="home screenshot" width="650" height="300">
+<img src="./readme_images/home.png" alt="home screenshot">
 
 * To use the movie search feature, users need to sign up or sign in first:   
-<img src="./readme_images/signup.png" alt="home screenshot" width="650" height="320">  
-<img src="./readme_images/signin.png" alt="home screenshot" width="650" height="320">
+<img src="./readme_images/signup.png" alt="home screenshot">  
+<img src="./readme_images/signin.png" alt="home screenshot">
 
 * After successfully signing in, users are redirected to the /movies route, where they can search for movies by name and save or delete movies from their favorites:
-<img src="./readme_images/movies.png" alt="home screenshot" width="650" height="320">
-<img src="./readme_images/savedmovies.png" alt="home screenshot" width="650" height="320">
+<img src="./readme_images/movies.png" alt="home screenshot">
+<img src="./readme_images/savedmovies.png" alt="home screenshot">
 
 * In the account window, users are able to edit their profile information or log out:
-<img src="./readme_images/profile.png" alt="home screenshot" width="650" height="300">
+<img src="./readme_images/profile.png" alt="home screenshot">
 
 
 ## Run locally
